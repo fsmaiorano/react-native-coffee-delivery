@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     height: 300,
     backgroundColor: THEME.COLORS.GREY_900,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'flex-start'
   },
   text: {
     color: THEME.COLORS.WHITE
