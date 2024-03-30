@@ -7,7 +7,7 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-      <Text>Hello world!</Text>
+      <Text style={styles.text}>Hello world!</Text>
     </View>
   );
 }
