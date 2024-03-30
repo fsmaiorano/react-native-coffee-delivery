@@ -4,8 +4,8 @@ import { THEME } from '../../styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: THEME.COLORS.GREY_800,
+    height: 300,
+    backgroundColor: THEME.COLORS.GREY_900,
     alignItems: 'center',
     justifyContent: 'center'
   },
