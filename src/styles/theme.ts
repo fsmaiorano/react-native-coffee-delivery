@@ -1,13 +1,25 @@
 export const THEME = {
   COLORS: {
-    WHITE: "#FFFFFF",
+    WHITE: "#FAFAFA",
 
-    GREY_100: "#E1E1E6",
-    GREY_300: "#8D8D99",
-    GREY_500: "#505059",
-    GREY_600: "#323238",
-    GREY_700: "#29292E",
-    GREY_800: "#202024",
+    GREY_100: "#F3F2F2",
+    GREY_300: "#EDEDED",
+    GREY_500: "#D7D5D5",
+    GREY_600: "#8D8686",
+    GREY_700: "#574F4D",
+    GREY_800: "#403937",
+    GREY_900: "#272221",
+
+    PURPLE_300: "#EBE5F9",
+    PURPLE_500: "#8047F8",
+    PURPLE_700: "#4B2995",
+    RED_500: "#AB222E",
+    RED_700: "#7A1921",
+
+    YELLOW_700: "#C47F17",
+    YELLOW_600: "#DBAC2C",
+    YELLOW_500: "#FBA94C",
+    YELLOW_300: "#F1E9C9",
 
     BRAND_LIGHT: "#00B37E",
     BRAND_MID: "#00875F",
@@ -17,10 +29,10 @@ export const THEME = {
     LABEL: "#A6A1B2",
 
     STAR_BLUE: "#00B4FF",
-    STAR_GRAY: "#D9E3F0"
+    STAR_GRAY: "#D9E3F0",
   },
   FONTS: {
     REGULAR: "Roboto_400Regular",
-    BOLD: "Roboto_700Bold"
-  }
+    BOLD: "Roboto_700Bold",
+  },
 };
