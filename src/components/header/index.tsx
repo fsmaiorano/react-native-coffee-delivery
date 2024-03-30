@@ -9,10 +9,10 @@ export function Header() {
       {/* <Link to={{ screen: "home", params: { id: "" } }}>
         <Text style={styles.text}>Home</Text>
       </Link> */}
-      <TouchableOpacity style={[styles.actions, { marginLeft: 40 }]}>
+      <View style={[styles.actions, { marginLeft: 40 }]}>
         <MapPin weight="fill" size={32} color={THEME.COLORS.PURPLE_700} />
         <Text style={[styles.text, { marginLeft: 10 }]}>Lisboa, LIS</Text>
-      </TouchableOpacity>
+      </View>
       <TouchableOpacity style={[styles.actions, { marginRight: 40 }]}>
         <ShoppingCart weight="fill" size={32} color={THEME.COLORS.YELLOW_700} />
       </TouchableOpacity>

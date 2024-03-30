@@ -32,7 +32,18 @@ export const THEME = {
     STAR_GRAY: "#D9E3F0",
   },
   FONTS: {
-    REGULAR: "Roboto_400Regular",
-    BOLD: "Roboto_700Bold",
+    BALOO2_REGULAR: "Baloo2_400Regular",
+    BALOO2_BOLD: "Baloo2_700Bold",
+    ROBOTO_REGULAR: "Roboto_400Regular",
+    ROBOTO_BOLD: "Roboto_700Bold",
+  },
+
+  SIZES: {
+    FONT: {
+      SMALL: 12,
+      MEDIUM: 16,
+      LARGE: 20,
+      XLARGE: 24,
+    },
   },
 };
