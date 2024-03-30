@@ -4,7 +4,7 @@ import { THEME } from "../../styles/theme";
 
 export const styles = StyleSheet.create({
   container: {
-    height: 300,
+    height: 200,
     backgroundColor: THEME.COLORS.GREY_900,
     alignItems: "center",
     justifyContent: "flex-start",
@@ -14,10 +14,8 @@ export const styles = StyleSheet.create({
     color: THEME.COLORS.WHITE,
     fontSize: THEME.SIZES.FONT.LARGE,
     fontFamily: THEME.FONTS.BALOO2_REGULAR,
-    paddingHorizontal: 30,
   },
   searchSection: {
-    width: "80%",
     marginTop: 20,
     flexDirection: "row",
     justifyContent: "center",

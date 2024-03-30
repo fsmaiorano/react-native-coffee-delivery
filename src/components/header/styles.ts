@@ -2,7 +2,7 @@ import { Platform, StyleSheet } from "react-native";
 
 import { THEME } from "../../styles/theme";
 
-const height = Platform.OS === "ios" ? 110 : 70;
+const height = Platform.OS === "ios" ? 100 : 70;
 export const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
@@ -17,6 +17,5 @@ export const styles = StyleSheet.create({
   actions: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
   },
 });
