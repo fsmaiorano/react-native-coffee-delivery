@@ -62,6 +62,7 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     fontFamily: THEME.FONTS.BALOO2_BOLD,
+    lineHeight: 25,
   },
   coffeeDescription: {
     fontSize: 14,
