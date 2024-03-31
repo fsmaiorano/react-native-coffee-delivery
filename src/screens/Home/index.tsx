@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { SealWarning } from "phosphor-react-native";
 import { Text, TextInput, View } from "react-native";
+import { Carousel } from "../../components/carousel";
 import { Header } from "../../components/header";
 import { THEME } from "../../styles/theme";
 import { styles } from "./styles";
@@ -10,7 +11,7 @@ export function Home() {
 
   return (
     <>
-      <View style={{padding: 20, backgroundColor:THEME.COLORS.GREY_900}}>
+      <View style={{padding: 25, backgroundColor:THEME.COLORS.GREY_900}}>
         <Header />
         <Text style={styles.text}>
             Encontre o café perfeito para qualquer hora do dia
@@ -33,6 +34,7 @@ export function Home() {
             />
           </View>
         </View>
+        <Carousel />
       </View>
     </>
   );
