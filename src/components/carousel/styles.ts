@@ -1,6 +1,7 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { THEME } from "../../styles/theme";
 
+const top = Platform.OS === "ios" ? 340 : 320;
 export const styles = StyleSheet.create({
   container: {
     width: "100%",
@@ -9,7 +10,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: "transparent",
     position: "absolute",
-    top: 320,
+    top: top,
   },
   coffeeContainer: {
     width: 208,
