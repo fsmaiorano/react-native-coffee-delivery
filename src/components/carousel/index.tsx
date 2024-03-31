@@ -37,7 +37,11 @@ export function Carousel() {
             <Image
               source={imageMapper[item.imageSrc as keyof typeof imageMapper]}
               style={styles.coffeeImage}
+              
             />
+            <View style={styles.coffeeContainerTag}>
+              <Text style={styles.coffeeTag}>{item.tags}</Text>
+            </View>
             <Text>{item.title}</Text>
             <Text>{item.value}</Text>
           </View>

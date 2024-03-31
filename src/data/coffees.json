@@ -4,7 +4,7 @@
       "imageSrc": "tradicional-express",
       "title": "Expresso Tradicional",
       "description": "O tradicional café feito com água quente e grãos moídos",
-      "tags": ["TRADICIONAL", "GELADO"],
+      "tags": ["TRADICIONAL"],
       "value": 9.9,
       "quantity": 1
     },
