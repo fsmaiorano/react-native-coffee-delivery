@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 import { styles } from "./styles";
 
 import coffees from "../../data/coffees.json";
@@ -23,17 +23,20 @@ const imageMapper = {
 export function Carousel() {
   return (
     <View style={styles.container}>
-      {coffees &&
-        coffees.map((coffee) => (
-          <View key={coffee.id} style={styles.coffeeContainer}>
+      <FlatList
+        horizontal
+        data={coffees}
+        renderItem={({ item }) => (
+          <View key={item.id} style={styles.coffeeContainer}>
             <Image
-              source={imageMapper[coffee.imageSrc as keyof typeof imageMapper]}
+              source={imageMapper[item.imageSrc as keyof typeof imageMapper]}
               style={styles.coffeeImage}
             />
-            <Text>{coffee.title}</Text>
-            <Text>{coffee.value}</Text>
+            <Text>{item.title}</Text>
+            <Text>{item.value}</Text>
           </View>
-        ))}
+        )}
+      ></FlatList>
     </View>
   );
 }
