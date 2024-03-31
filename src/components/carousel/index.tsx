@@ -26,6 +26,12 @@ export function Carousel() {
       <FlatList
         horizontal
         data={coffees}
+        contentContainerStyle={{ paddingVertical: 16 }}
+        snapToAlignment="center"
+        decelerationRate="fast"
+        automaticallyAdjustContentInsets={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <View key={item.id} style={styles.coffeeContainer}>
             <Image

@@ -11,13 +11,12 @@ export function Home() {
 
   return (
     <>
-      <View style={{padding: 25, backgroundColor:THEME.COLORS.GREY_900}}>
+      <View style={{ padding: 25, backgroundColor: THEME.COLORS.GREY_900 }}>
         <Header />
         <Text style={styles.text}>
-            Encontre o café perfeito para qualquer hora do dia
-          </Text>
+          Encontre o café perfeito para qualquer hora do dia
+        </Text>
         <View style={styles.container}>
-          
           <View style={styles.searchSection}>
             <SealWarning
               style={styles.searchIcon}
@@ -34,8 +33,8 @@ export function Home() {
             />
           </View>
         </View>
-        <Carousel />
       </View>
+      <Carousel />
     </>
   );
 }
