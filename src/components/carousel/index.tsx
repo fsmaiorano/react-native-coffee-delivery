@@ -23,21 +23,17 @@ const imageMapper = {
 export function Carousel() {
   return (
     <View style={styles.container}>
-      <View>
-        {coffees &&
-          coffees.map((coffee) => (
-            <View key={coffee.id}>
-              <Image
-                source={
-                  imageMapper[coffee.imageSrc as keyof typeof imageMapper]
-                }
-                style={{ width: 100, height: 100, borderRadius: 50 }}
-              />
-              <Text>{coffee.title}</Text>
-              <Text>{coffee.value}</Text>
-            </View>
-          ))}
-      </View>
+      {coffees &&
+        coffees.map((coffee) => (
+          <View key={coffee.id} style={styles.coffeeContainer}>
+            <Image
+              source={imageMapper[coffee.imageSrc as keyof typeof imageMapper]}
+              style={styles.coffeeImage}
+            />
+            <Text>{coffee.title}</Text>
+            <Text>{coffee.value}</Text>
+          </View>
+        ))}
     </View>
   );
 }
