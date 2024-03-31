@@ -21,6 +21,10 @@ const imageMapper = {
 };
 
 export function Carousel() {
+  const handlePrice = (price: number) => {
+    return price.toFixed(2).replace(".", ",");
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -37,13 +41,20 @@ export function Carousel() {
             <Image
               source={imageMapper[item.imageSrc as keyof typeof imageMapper]}
               style={styles.coffeeImage}
-              
             />
-            <View style={styles.coffeeContainerTag}>
-              <Text style={styles.coffeeTag}>{item.tags}</Text>
+
+            <View style={styles.coffeContainerTag}>
+              {item.tags &&
+                item.tags.map((tag, index) => (
+                  <View key={index} style={styles.coffeeTag}>
+                    <Text style={styles.coffeeTagText}>{tag}</Text>
+                  </View>
+                ))}
             </View>
-            <Text>{item.title}</Text>
-            <Text>{item.value}</Text>
+
+            <Text style={styles.coffeeTitle}>{item.title}</Text>
+            <Text style={styles.coffeeDescription}>{item.description}</Text>
+            <Text style={styles.coffeePrice}>R$ {handlePrice(item.value)}</Text>
           </View>
         )}
       ></FlatList>
