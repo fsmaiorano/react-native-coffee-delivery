@@ -1,10 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
-import { View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView, View } from "react-native";
 import { Carousel } from "../../components/carousel";
 import { Header } from "../../components/header";
 import { Products } from "../../components/products";
 import { Search } from "../../components/search";
+import { Tags } from "../../components/tags";
 import { THEME } from "../../styles/theme";
 
 export function Home() {
@@ -20,6 +20,7 @@ export function Home() {
       <View style={{ padding: 25, marginTop: 200 }}>
         <Products />
       </View>
+      <Tags />
     </ScrollView>
   );
 }
