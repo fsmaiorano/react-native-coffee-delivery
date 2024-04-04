@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { styles } from "./styles";
 
 import { useEffect, useState } from "react";
@@ -19,11 +19,21 @@ export function Products() {
   return (
     <>
       <Text style={styles.title}>Nossos cafés</Text>
-      {tags.map((tag, index) => (
-        <Text key={index} style={styles.tag}>
-          {tag}
-        </Text>
-      ))}
+      <FlatList
+        horizontal
+        data={tags}
+        contentContainerStyle={{ paddingVertical: 16 }}
+        snapToAlignment="center"
+        decelerationRate="fast"
+        automaticallyAdjustContentInsets={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item, index }) => (
+          <View key={index} style={styles.coffeeTag}>
+            <Text style={styles.coffeeTagText}>{item}</Text>
+          </View>
+        )}
+      ></FlatList>
     </>
   );
 }
