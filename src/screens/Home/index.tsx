@@ -3,6 +3,7 @@ import { SealWarning } from "phosphor-react-native";
 import { Text, TextInput, View } from "react-native";
 import { Carousel } from "../../components/carousel";
 import { Header } from "../../components/header";
+import { Products } from "../../components/products";
 import { THEME } from "../../styles/theme";
 import { styles } from "./styles";
 
@@ -13,7 +14,7 @@ export function Home() {
     <>
       <View style={{ padding: 25, backgroundColor: THEME.COLORS.GREY_900 }}>
         <Header />
-        <Text style={styles.text}>
+        <Text style={styles.title}>
           Encontre o café perfeito para qualquer hora do dia
         </Text>
         <View style={styles.container}>
@@ -35,6 +36,7 @@ export function Home() {
         </View>
       </View>
       <Carousel />
+      <Products />
     </>
   );
 }

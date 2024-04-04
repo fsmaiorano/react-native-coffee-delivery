@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
   },
-  text: {
+  title: {
     marginTop: 50,
     color: THEME.COLORS.WHITE,
     fontSize: THEME.SIZES.FONT.LARGE,
