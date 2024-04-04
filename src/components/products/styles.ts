@@ -13,4 +13,9 @@ export const styles = StyleSheet.create({
     fontSize: THEME.SIZES.FONT.LARGE,
     fontFamily: THEME.FONTS.BALOO2_REGULAR,
   },
+  tag: {
+    color: THEME.COLORS.GREY_900,
+    fontSize: THEME.SIZES.FONT.SMALL,
+    fontFamily: THEME.FONTS.BALOO2_REGULAR,
+  },
 });
