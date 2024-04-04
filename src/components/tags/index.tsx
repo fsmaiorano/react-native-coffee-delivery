@@ -15,13 +15,13 @@ export function Tags() {
   useEffect(() => {
     getAllTags();
   }, []);
-  
+
   return (
     <>
       <FlatList
         horizontal
         data={tags}
-        contentContainerStyle={{ paddingVertical: 16, paddingHorizontal: 25}}
+        contentContainerStyle={{ paddingVertical: 16, paddingHorizontal: 25 }}
         snapToAlignment="center"
         decelerationRate="fast"
         automaticallyAdjustContentInsets={false}
@@ -35,7 +35,4 @@ export function Tags() {
       ></FlatList>
     </>
   );
-}
-function useEffeact(arg0: () => void, arg1: never[]) {
-  throw new Error("Function not implemented.");
 }
