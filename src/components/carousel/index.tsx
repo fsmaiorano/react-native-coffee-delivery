@@ -54,7 +54,12 @@ export function Carousel() {
 
             <Text style={styles.coffeeTitle}>{item.title}</Text>
             <Text style={styles.coffeeDescription}>{item.description}</Text>
-            <Text style={styles.coffeePrice}>R$ {handlePrice(item.value)}</Text>
+            <Text>
+              <Text style={styles.coffeePricePrefix}>R$ </Text>
+              <Text style={styles.coffeePrice}>
+                {handlePrice(item.value)}
+              </Text>
+            </Text>
           </View>
         )}
       ></FlatList>

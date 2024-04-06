@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   title: {
     marginTop: 50,
     color: THEME.COLORS.WHITE,
-    fontSize: THEME.SIZES.FONT.LARGE,
+    fontSize: THEME.SIZES.FONT.XLARGE,
     fontFamily: THEME.FONTS.BALOO2_REGULAR,
   },
   searchSection: {
