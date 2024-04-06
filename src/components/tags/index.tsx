@@ -5,16 +5,28 @@ import { AppContext } from "../../context/AppContext";
 import { styles } from "./styles";
 
 export function Tags() {
-  const { coffees } = useContext(AppContext);
+  const { coffees, applyFilter } = useContext(AppContext);
   const [tags, setTags] = useState<string[]>([]);
 
   const getAllTags = () => {
     const tags = [...new Set(coffees.flatMap((coffee) => coffee.tags))];
+    tags.unshift("TODOS");
     setTags(tags);
   };
 
   const onTagPress = (index: number) => {
-    console.log(index);
+    console.log("index", index);
+    const selectedTag = tags[index];
+    if (selectedTag === "TODOS") {
+      if (applyFilter) {
+        applyFilter([]);
+      }
+      return;
+    }
+
+    if (applyFilter) {
+      applyFilter([selectedTag]);
+    }
   };
 
   useEffect(() => {

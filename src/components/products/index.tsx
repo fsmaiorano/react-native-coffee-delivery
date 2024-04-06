@@ -22,14 +22,14 @@ const imageMapper = {
 };
 
 export function Products() {
-  const { coffees } = useContext(AppContext);
+  const { coffees, filteredCoffees } = useContext(AppContext);
   const handlePrice = (price: number) => {
     return price.toFixed(2).replace(".", ",");
   };
 
   return (
     <View style={styles.container}>
-      {coffees.map((coffee) => (
+      {(filteredCoffees?.length ? filteredCoffees : coffees).map((coffee) => (
         <View key={coffee.id} style={styles.card}>
           <View style={styles.imageWrapper}>
             <Image
