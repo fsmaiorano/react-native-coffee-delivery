@@ -5,7 +5,8 @@ import { AppContext } from "../../context/AppContext";
 import { styles } from "./styles";
 
 export function Tags() {
-  const { coffees, applyFilter } = useContext(AppContext);
+  const { coffees, applyFilter, handleTagSelection, selectedTag } =
+    useContext(AppContext);
   const [tags, setTags] = useState<string[]>([]);
 
   const getAllTags = () => {
@@ -14,9 +15,10 @@ export function Tags() {
     setTags(tags);
   };
 
-  const onTagPress = (index: number) => {
+  const onTagPress = (index: number, tag: string) => {
     console.log("index", index);
     const selectedTag = tags[index];
+    handleTagSelection(tag);
     if (selectedTag === "TODOS") {
       if (applyFilter) {
         applyFilter([]);
@@ -47,8 +49,14 @@ export function Tags() {
         renderItem={({ item, index }) => (
           <TouchableOpacity
             key={index}
-            style={styles.coffeeTag}
-            onPress={() => onTagPress(index)}
+            style={{
+              ...styles.coffeeTag,
+              borderWidth:
+                item === selectedTag
+                  ? styles.coffeeSelectedTag.borderWidth
+                  : styles.coffeeTag.borderWidth,
+            }}
+            onPress={() => onTagPress(index, item)}
           >
             <Text style={styles.coffeeTagText}>{item}</Text>
           </TouchableOpacity>

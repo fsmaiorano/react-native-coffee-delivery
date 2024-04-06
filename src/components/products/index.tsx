@@ -22,13 +22,14 @@ const imageMapper = {
 };
 
 export function Products() {
-  const { coffees, filteredCoffees } = useContext(AppContext);
+  const { coffees, filteredCoffees, selectedTag } = useContext(AppContext);
   const handlePrice = (price: number) => {
     return price.toFixed(2).replace(".", ",");
   };
 
   return (
     <View style={styles.container}>
+      {/* {selectedTag && selectedTag !== "TODOS" && <Text>{selectedTag}</Text>} */}
       {(filteredCoffees?.length ? filteredCoffees : coffees).map((coffee) => (
         <View key={coffee.id} style={styles.card}>
           <View style={styles.imageWrapper}>

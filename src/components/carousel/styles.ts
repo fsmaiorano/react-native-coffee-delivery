@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
     marginTop: 5,
   },
   coffeeTag: {
-    width: 75,
+    width: 78,
     height: 20,
     justifyContent: "center",
     alignItems: "center",

@@ -22,7 +22,7 @@ const imageMapper = {
 
 export function Carousel() {
   const { coffees } = useContext(AppContext);
-  
+
   const handlePrice = (price: number) => {
     return price.toFixed(2).replace(".", ",");
   };
