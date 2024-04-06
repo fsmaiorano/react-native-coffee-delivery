@@ -62,8 +62,7 @@ export const styles = StyleSheet.create({
   coffeeValue: {
     color: THEME.COLORS.YELLOW_700,
     textAlign: "left",
-    fontWeight: "bold",
     fontFamily: THEME.FONTS.BALOO2_BOLD,
-    fontSize: THEME.SIZES.FONT.LARGE,
+    fontSize: THEME.SIZES.FONT.XLARGE,
   },
 });

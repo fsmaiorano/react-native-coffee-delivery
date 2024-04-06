@@ -78,9 +78,8 @@ export const styles = StyleSheet.create({
   },
   coffeePrice: {
     color: THEME.COLORS.YELLOW_700,
-    textAlign: "center",
-    fontWeight: "bold",
+    textAlign: "left",
     fontFamily: THEME.FONTS.BALOO2_BOLD,
-    fontSize: THEME.SIZES.FONT.LARGE,
+    fontSize: THEME.SIZES.FONT.XLARGE,
   },
 });
