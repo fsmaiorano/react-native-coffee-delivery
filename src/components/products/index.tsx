@@ -1,7 +1,8 @@
 import { Image, Text, View } from "react-native";
 import { styles } from "./styles";
 
-import coffees from "../../data/coffees.json";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 
 const imageMapper = {
   "tradicional-express": require("../../assets/coffees/tradicional-express.png"),
@@ -21,6 +22,7 @@ const imageMapper = {
 };
 
 export function Products() {
+  const { coffees } = useContext(AppContext);
   const handlePrice = (price: number) => {
     return price.toFixed(2).replace(".", ",");
   };

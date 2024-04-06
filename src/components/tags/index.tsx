@@ -1,15 +1,20 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text, TouchableOpacity } from "react-native";
 
-import { useEffect, useState } from "react";
-import coffees from "../../data/coffees.json";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../../context/AppContext";
 import { styles } from "./styles";
 
 export function Tags() {
+  const { coffees } = useContext(AppContext);
   const [tags, setTags] = useState<string[]>([]);
 
   const getAllTags = () => {
     const tags = [...new Set(coffees.flatMap((coffee) => coffee.tags))];
     setTags(tags);
+  };
+
+  const onTagPress = (index: number) => {
+    console.log(index);
   };
 
   useEffect(() => {
@@ -28,9 +33,13 @@ export function Tags() {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         renderItem={({ item, index }) => (
-          <View key={index} style={styles.coffeeTag}>
+          <TouchableOpacity
+            key={index}
+            style={styles.coffeeTag}
+            onPress={() => onTagPress(index)}
+          >
             <Text style={styles.coffeeTagText}>{item}</Text>
-          </View>
+          </TouchableOpacity>
         )}
       ></FlatList>
     </>
