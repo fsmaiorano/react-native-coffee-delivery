@@ -1,7 +1,7 @@
+import { useContext } from "react";
 import { FlatList, Image, Text, View } from "react-native";
+import { AppContext } from "../../context/AppContext";
 import { styles } from "./styles";
-
-import coffees from "../../data/coffees.json";
 
 const imageMapper = {
   "tradicional-express": require("../../assets/coffees/tradicional-express.png"),
@@ -21,6 +21,8 @@ const imageMapper = {
 };
 
 export function Carousel() {
+  const { coffees } = useContext(AppContext);
+
   const handlePrice = (price: number) => {
     return price.toFixed(2).replace(".", ",");
   };
@@ -54,7 +56,10 @@ export function Carousel() {
 
             <Text style={styles.coffeeTitle}>{item.title}</Text>
             <Text style={styles.coffeeDescription}>{item.description}</Text>
-            <Text style={styles.coffeePrice}>R$ {handlePrice(item.value)}</Text>
+            <Text>
+              <Text style={styles.coffeePricePrefix}>R$ </Text>
+              <Text style={styles.coffeePrice}>{handlePrice(item.value)}</Text>
+            </Text>
           </View>
         )}
       ></FlatList>

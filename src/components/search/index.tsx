@@ -1,4 +1,4 @@
-import { SealWarning } from "phosphor-react-native";
+import { MagnifyingGlass } from "phosphor-react-native";
 import { Text, TextInput, View } from "react-native";
 import { THEME } from "../../styles/theme";
 import { styles } from "./styles";
@@ -11,7 +11,7 @@ export function Search() {
       </Text>
       <View style={styles.container}>
         <View style={styles.searchSection}>
-          <SealWarning
+          <MagnifyingGlass 
             style={styles.searchIcon}
             size={32}
             color={THEME.COLORS.GREY_300}

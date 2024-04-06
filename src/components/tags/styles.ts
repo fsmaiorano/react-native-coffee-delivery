@@ -11,6 +11,11 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: THEME.COLORS.PURPLE_300,
     marginRight: 8,
+    borderWidth: 0,
+    borderColor: THEME.COLORS.PURPLE_700,
+  },
+  coffeeSelectedTag: {
+    borderWidth: 1,
   },
   coffeeTagText: {
     fontSize: 10,

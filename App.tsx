@@ -11,6 +11,7 @@ import { Baloo2_400Regular, Baloo2_700Bold } from "@expo-google-fonts/baloo-2";
 import { Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
 
 import { useFonts } from "expo-font";
+import { AppContextProvider } from "./src/context/AppContext";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -30,7 +31,9 @@ export default function App() {
           backgroundColor={THEME.COLORS.GREY_900}
           translucent
         />
-        <Routes />
+        <AppContextProvider>
+          <Routes />
+        </AppContextProvider>
       </GestureHandlerRootView>
     );
   }
