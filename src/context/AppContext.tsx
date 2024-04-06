@@ -42,6 +42,7 @@ export function AppContextProvider({ children }: IAppContextProps) {
       coffee.tags.some((tag) => tags.includes(tag))
     );
 
+    console.log("filteredCoffees", filteredCoffees);
     setFilteredCoffees(filteredCoffees);
   };
 

@@ -1,9 +1,9 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { styles } from "./styles";
 
 import { useNavigation } from "@react-navigation/native";
 import { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import { AppContext, Coffee } from "../../context/AppContext";
 
 const imageMapper = {
   "tradicional-express": require("../../assets/coffees/tradicional-express.png"),
@@ -29,12 +29,16 @@ export function Products() {
     return price.toFixed(2).replace(".", ",");
   };
 
+  const goToDetails = (coffee: Coffee) => {
+    navigation.navigate("detail", { coffee });
+  };
+
   return (
     <>
       <FlatList
         data={filteredCoffees?.length ? filteredCoffees : coffees}
         renderItem={({ item }) => (
-          <View style={styles.card}>
+          <Pressable style={styles.card} onPress={() => goToDetails(item)}>
             <View style={styles.imageWrapper}>
               <Image
                 source={imageMapper[item.imageSrc as keyof typeof imageMapper]}
@@ -51,7 +55,7 @@ export function Products() {
                 </Text>
               </Text>
             </View>
-          </View>
+          </Pressable>
         )}
         keyExtractor={(item) => item.id.toString()}
       ></FlatList>
