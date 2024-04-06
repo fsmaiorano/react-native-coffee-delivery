@@ -1,6 +1,7 @@
-import { Image, Text, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 import { styles } from "./styles";
 
+import { useNavigation } from "@react-navigation/native";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 
@@ -22,34 +23,38 @@ const imageMapper = {
 };
 
 export function Products() {
+  const navigation = useNavigation();
   const { coffees, filteredCoffees, selectedTag } = useContext(AppContext);
   const handlePrice = (price: number) => {
     return price.toFixed(2).replace(".", ",");
   };
 
   return (
-    <View style={styles.container}>
-      {/* {selectedTag && selectedTag !== "TODOS" && <Text>{selectedTag}</Text>} */}
-      {(filteredCoffees?.length ? filteredCoffees : coffees).map((coffee) => (
-        <View key={coffee.id} style={styles.card}>
-          <View style={styles.imageWrapper}>
-            <Image
-              source={imageMapper[coffee.imageSrc as keyof typeof imageMapper]}
-              style={styles.coffeeImage}
-            />
-          </View>
-          <View style={styles.contentWrapper}>
-            <Text style={styles.coffeeTitle}>{coffee.title}</Text>
-            <Text style={styles.coffeeDescription}>{coffee.description}</Text>
-            <Text>
-              <Text style={styles.coffeValuePrefix}>R$ </Text>
-              <Text style={styles.coffeeValue}>
-                {handlePrice(coffee.value)}
+    <>
+      <FlatList
+        data={filteredCoffees?.length ? filteredCoffees : coffees}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
+            <View style={styles.imageWrapper}>
+              <Image
+                source={imageMapper[item.imageSrc as keyof typeof imageMapper]}
+                style={styles.coffeeImage}
+              />
+            </View>
+            <View style={styles.contentWrapper}>
+              <Text style={styles.coffeeTitle}>{item.title}</Text>
+              <Text style={styles.coffeeDescription}>{item.description}</Text>
+              <Text>
+                <Text style={styles.coffeValuePrefix}>R$ </Text>
+                <Text style={styles.coffeeValue}>
+                  {handlePrice(item.value)}
+                </Text>
               </Text>
-            </Text>
+            </View>
           </View>
-        </View>
-      ))}
-    </View>
+        )}
+        keyExtractor={(item) => item.id.toString()}
+      ></FlatList>
+    </>
   );
 }

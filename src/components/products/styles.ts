@@ -4,9 +4,6 @@ import { THEME } from "../../styles/theme";
 const top = Platform.OS === "ios" ? 340 : 320;
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
   },
   card: {
     width: "100%",
@@ -22,7 +19,7 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 35,
     borderBottomLeftRadius: 35,
 
-    marginVertical: 30,
+    marginVertical: 35,
   },
   imageWrapper: {
     width: 110,
