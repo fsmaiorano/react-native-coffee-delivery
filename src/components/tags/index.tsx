@@ -16,7 +16,6 @@ export function Tags() {
   };
 
   const onTagPress = (index: number, tag: string) => {
-    console.log("index", index);
     const selectedTag = tags[index];
     handleTagSelection(tag);
     if (selectedTag === "TODOS") {
