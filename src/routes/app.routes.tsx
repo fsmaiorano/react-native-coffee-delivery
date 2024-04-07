@@ -25,6 +25,7 @@ export function AppRoutes() {
           headerBlurEffect: "light",
           headerBackButtonMenuEnabled: true,
           customAnimationOnGesture: true,
+          headerShadowVisible : false,
           headerBackTitleVisible: false,
           headerTintColor: "#fff",
           headerStyle: {
