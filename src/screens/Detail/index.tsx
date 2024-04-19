@@ -1,23 +1,7 @@
 import { useRoute } from "@react-navigation/native";
-import { Image, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { Coffee } from "../../context/AppContext";
-
-const imageMapper = {
-  "tradicional-express": require("../../assets/coffees/tradicional-express.png"),
-  "american-express": require("../../assets/coffees/american-express.png"),
-  "creamy-express": require("../../assets/coffees/creamy-express.png"),
-  "ice-express": require("../../assets/coffees/ice-express.png"),
-  "coffee-with-milk": require("../../assets/coffees/coffee-with-milk.png"),
-  "capuccino-coffee": require("../../assets/coffees/capuccino-coffee.png"),
-  "macchiato-coffee": require("../../assets/coffees/macchiato-coffee.png"),
-  "mocaccino-coffee": require("../../assets/coffees/mocaccino-coffee.png"),
-  "hot-chocolate": require("../../assets/coffees/hot-chocolate.png"),
-  "cuban-coffee": require("../../assets/coffees/cuban-coffee.png"),
-  "hawaiian-coffee": require("../../assets/coffees/hawaiian-coffee.png"),
-  "arabian-coffee": require("../../assets/coffees/arabian-coffee.png"),
-  "irish-coffee": require("../../assets/coffees/irish-coffee.png"),
-  "latte-coffee": require("../../assets/coffees/latte-coffee.png"),
-};
+import { styles } from "./styles";
 
 interface Params {
   coffee: Coffee;
@@ -30,8 +14,21 @@ export function Detail() {
     return price.toFixed(2).replace(".", ",");
   };
   return (
-    <View>
-      <Image
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text>
+          {coffee.tags &&
+            coffee.tags.map((tag, index) => (
+              <View key={index}>
+                <Text>{tag}</Text>
+              </View>
+            ))}
+        </Text>
+      </View>
+      <View style={styles.footer}>
+        <Text>dsadsa</Text>
+      </View>
+      {/* <Image
         source={imageMapper[coffee.imageSrc as keyof typeof imageMapper]}
       />
       <Text>{coffee.title}</Text>
@@ -39,7 +36,7 @@ export function Detail() {
       <Text>
         <Text>R$ </Text>
         <Text>{handlePrice(coffee.value)}</Text>
-      </Text>
+      </Text> */}
     </View>
   );
 }
