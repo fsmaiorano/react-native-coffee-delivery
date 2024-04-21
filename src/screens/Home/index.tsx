@@ -12,7 +12,7 @@ export function Home() {
   const navigation = useNavigation();
 
   return (
-    <ScrollView>
+    <ScrollView nestedScrollEnabled>
       <View style={{ padding: 25, backgroundColor: THEME.COLORS.GREY_900 }}>
         <Header />
         <Search />
