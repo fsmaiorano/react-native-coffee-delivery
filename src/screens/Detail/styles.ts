@@ -8,8 +8,7 @@ export const styles = StyleSheet.create({
   },
   footer: {
     height: "30%",
-    backgroundColor: THEME.COLORS.WHITE,
-    padding: 60,
+    backgroundColor: THEME.COLORS.GREY_100,
   },
   tagContainer: {
     flexDirection: "row",
@@ -49,8 +48,8 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   coffeeImage: {
-    width: 300,
-    height: 300,
+    width: 320,
+    height: 320,
     transform: [{ translateY: -300 }],
   },
   coffeeTitle: {
@@ -85,6 +84,8 @@ export const styles = StyleSheet.create({
     fontSize: 40,
   },
   sizeTitle: {
+    paddingTop: 50,
+    paddingLeft: 50,
     fontSize: THEME.SIZES.FONT.MEDIUM,
     fontFamily: THEME.FONTS.BALOO2_BOLD,
   },

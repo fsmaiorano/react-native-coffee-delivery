@@ -37,10 +37,8 @@ export function Detail() {
         <Text style={styles.coffeeDescription}>{coffee.description}</Text>
       </View>
       <View style={styles.footer}>
-        <View>
-          <Text style={styles.sizeTitle}>Selecione o tamanho:</Text>
-          <Sizes />
-        </View>
+        <Text style={styles.sizeTitle}>Selecione o tamanho:</Text>
+        <Sizes />
       </View>
       <View style={styles.CoffeeImageWrapper}>
         <Image source={require(coffeeImage)} style={styles.coffeeImage} />
