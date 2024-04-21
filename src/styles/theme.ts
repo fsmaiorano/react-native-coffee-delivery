@@ -44,6 +44,7 @@ export const THEME = {
       MEDIUM: 16,
       LARGE: 20,
       XLARGE: 22,
+      XXLARGE: 28,
     },
   },
 };
