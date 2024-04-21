@@ -1,6 +1,7 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { THEME } from "../../styles/theme";
 
+const { width, height } = Dimensions.get("window");
 export const styles = StyleSheet.create({
   header: {
     height: "70%",
@@ -50,7 +51,7 @@ export const styles = StyleSheet.create({
   coffeeImage: {
     width: 320,
     height: 320,
-    transform: [{ translateY: -300 }],
+    transform: [{ translateY: -height * 0.38}],
   },
   coffeeTitle: {
     fontSize: 26,
@@ -86,7 +87,8 @@ export const styles = StyleSheet.create({
   sizeTitle: {
     paddingTop: 50,
     paddingLeft: 50,
+    color: THEME.COLORS.GREY_700,
     fontSize: THEME.SIZES.FONT.MEDIUM,
-    fontFamily: THEME.FONTS.BALOO2_BOLD,
+    fontFamily: THEME.FONTS.BALOO2_REGULAR,
   },
 });

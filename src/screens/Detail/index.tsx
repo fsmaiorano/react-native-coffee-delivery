@@ -1,5 +1,6 @@
 import { useRoute } from "@react-navigation/native";
 import { Image, Text, View } from "react-native";
+import { Quantity } from "../../components/quantity";
 import { Sizes } from "../../components/sizes";
 import { Coffee } from "../../context/AppContext";
 import { styles } from "./styles";
@@ -39,6 +40,7 @@ export function Detail() {
       <View style={styles.footer}>
         <Text style={styles.sizeTitle}>Selecione o tamanho:</Text>
         <Sizes />
+        <Quantity />
       </View>
       <View style={styles.CoffeeImageWrapper}>
         <Image source={require(coffeeImage)} style={styles.coffeeImage} />
