@@ -1,11 +1,11 @@
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, TouchableOpacity } from "react-native";
 
-import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../context/AppContext";
+import { useEffect, useState } from "react";
+import { styles } from "./styles";
 
 export function Sizes() {
-  const { coffees, applyFilter } = useContext(AppContext);
   const [sizes, setSizes] = useState<string[]>([]);
+  const [selectedSize, setSelectedSize] = useState("");
 
   const getAllSizes = () => {
     const sizes = ["114ml", "140ml", "227ml"];
@@ -13,18 +13,7 @@ export function Sizes() {
   };
 
   const onSizePress = (index: number, size: string) => {
-    const selectedSize = sizes[index];
-    // handleSizeSelection(size);
-    // if (selectedSize === "TODOS") {
-    //   if (applyFilter) {
-    //     applyFilter([]);
-    //   }
-    //   return;
-    // }
-
-    if (applyFilter) {
-      applyFilter([selectedSize]);
-    }
+    setSelectedSize(size);
   };
 
   useEffect(() => {
@@ -34,14 +23,38 @@ export function Sizes() {
   return (
     <FlatList
       horizontal
+      scrollEnabled={false}
       data={sizes}
-      contentContainerStyle={{ paddingVertical: 16, paddingHorizontal: 25 }}
+      contentContainerStyle={{
+        paddingVertical: 10,
+        paddingHorizontal: 50,
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+      }}
       snapToAlignment="center"
       decelerationRate="fast"
       automaticallyAdjustContentInsets={false}
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}
-      renderItem={({ item, index }) => <Text>{item}</Text>}
+      renderItem={({ item, index }) => (
+        <TouchableOpacity
+          key={index}
+          style={
+            item === selectedSize ? styles.coffeeSelectedTag : styles.coffeeTag
+          }
+          onPress={() => onSizePress(index, item)}
+        >
+          <Text
+            style={
+              item === selectedSize
+                ? styles.coffeeSelectedTagText
+                : styles.coffeeTagText
+            }
+          >
+            {item}
+          </Text>
+        </TouchableOpacity>
+      )}
     />
   );
 }

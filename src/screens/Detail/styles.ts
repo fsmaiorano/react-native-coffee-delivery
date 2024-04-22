@@ -1,21 +1,15 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { THEME } from "../../styles/theme";
 
+const { width, height } = Dimensions.get("window");
 export const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-    flexDirection: "column",
-    backgroundColor: THEME.COLORS.WHITE,
-  },
   header: {
     height: "70%",
     backgroundColor: THEME.COLORS.GREY_900,
   },
   footer: {
-    alignItems: "flex-start",
-    justifyContent: "center",
-    flexDirection: "column",
-    padding: 60,
+    height: "30%",
+    backgroundColor: THEME.COLORS.GREY_100,
   },
   tagContainer: {
     flexDirection: "row",
@@ -50,16 +44,17 @@ export const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   CoffeeImageWrapper: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   coffeeImage: {
-    width: 300,
-    height: 300,
-    transform: [{ translateY: -1050 }],
+    width: 320,
+    height: 320,
+    transform: [{ translateY: -height * 0.38}],
   },
   coffeeTitle: {
-    fontSize: THEME.SIZES.FONT.XXLARGE,
+    fontSize: 26,
     lineHeight: 70,
     color: THEME.COLORS.WHITE,
     fontFamily: THEME.FONTS.BALOO2_BOLD,
@@ -67,7 +62,7 @@ export const styles = StyleSheet.create({
   coffeeDescription: {
     marginLeft: 14,
     marginRight: 14,
-    fontSize: THEME.SIZES.FONT.LARGE,
+    fontSize: THEME.SIZES.FONT.MEDIUM,
     color: THEME.COLORS.WHITE,
     fontFamily: THEME.FONTS.ROBOTO_REGULAR,
     lineHeight: 24,
@@ -90,31 +85,10 @@ export const styles = StyleSheet.create({
     fontSize: 40,
   },
   sizeTitle: {
-    fontSize: 20,
-    color: THEME.COLORS.GREY_800,
-    fontFamily: THEME.FONTS.BALOO2_BOLD,
-    marginBottom: 10,
+    paddingTop: 50,
+    paddingLeft: 50,
+    color: THEME.COLORS.GREY_700,
+    fontSize: THEME.SIZES.FONT.MEDIUM,
+    fontFamily: THEME.FONTS.BALOO2_REGULAR,
   },
 });
-
-//
-// coffeeTag: {
-//     width: 85,
-//         height: 30,
-//         justifyContent: "center",
-//         alignItems: "center",
-//         borderRadius: 50,
-//         backgroundColor: THEME.COLORS.PURPLE_300,
-//         marginRight: 8,
-//         borderWidth: 0,
-//         borderColor: THEME.COLORS.PURPLE_700,
-// },
-// coffeeSelectedTag: {
-//     borderWidth: 1,
-// },
-// coffeeTagText: {
-//     fontSize: 10,
-//         fontWeight: "bold",
-//         color: THEME.COLORS.PURPLE_700,
-//         fontFamily: THEME.FONTS.ROBOTO_BOLD,
-// },
