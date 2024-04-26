@@ -9,7 +9,7 @@ export function Quantity() {
       <View style={styles.quantityContainer}>
         <TouchableOpacity
           style={styles.quantityButton}
-          onPress={() => setQuantity(quantity - 1)}
+          onPress={() => setQuantity( quantity > 0 ? quantity - 1 : 0 )}
         >
           <Text style={styles.quantityButtonText}>-</Text>
         </TouchableOpacity>
@@ -22,8 +22,8 @@ export function Quantity() {
         </TouchableOpacity>
       </View>
       <View style={styles.actionContainer}>
-        <TouchableOpacity style={styles.quantityButton} onPress={() => setQuantity(0)}>
-          <Text style={styles.quantityButtonText}>ADICIONAR</Text>
+        <TouchableOpacity style={styles.actionButton} onPress={() => setQuantity(0)}>
+          <Text style={styles.actionButtonText}>ADICIONAR</Text>
         </TouchableOpacity>
       </View>
     </View>
