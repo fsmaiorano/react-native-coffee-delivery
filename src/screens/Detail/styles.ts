@@ -4,7 +4,7 @@ import { THEME } from "../../styles/theme";
 const { width, height } = Dimensions.get("window");
 export const styles = StyleSheet.create({
   header: {
-    height: "70%",
+    height: "65%",
     backgroundColor: THEME.COLORS.GREY_900,
   },
   footer: {

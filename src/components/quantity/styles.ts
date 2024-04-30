@@ -7,6 +7,8 @@ export const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     borderColor: "#000",
+    width: 305,
+    height: 50,
     borderRadius: 10,
     marginLeft: 50,
     marginRight: 50,
@@ -34,7 +36,9 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   actionContainer: {
-    width: 165,
+    width: 180,
+
+    height: 50,
     borderRadius: 10,
     backgroundColor: THEME.COLORS.PURPLE_700,
   },
