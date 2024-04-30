@@ -1,24 +1,23 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { THEME } from "../../styles/theme";
 
 const screenWidth = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    borderWidth: 1,
     borderColor: "#000",
     borderRadius: 10,
-    paddingHorizontal: 50,
+    marginLeft: 50,
+    marginRight: 50,
+    marginBottom: 10,
+    backgroundColor: THEME.COLORS.GREY_300,
   },
   quantityContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: '40%',
-  },
-  actionContainer: {
-    width: '60%',
+    justifyContent: "center",
+    width: 115,
   },
   quantityButton: {
     width: 50,
@@ -27,21 +26,27 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   quantityButtonText: {
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: 35,
+    fontWeight: "300",
+    color: THEME.COLORS.PURPLE_500,
   },
   quantity: {
     fontSize: 20,
   },
+  actionContainer: {
+    width: 165,
+    borderRadius: 10,
+    backgroundColor: THEME.COLORS.PURPLE_700,
+  },
   actionButton: {
-    width: 50,
     height: 50,
     justifyContent: "center",
     alignItems: "center",
   },
   actionButtonText: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
+    color: THEME.COLORS.WHITE,
   },
   action: {
     fontSize: 20,

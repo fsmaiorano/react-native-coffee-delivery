@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, ReactNode } from "react";
 
 import data from "../data/coffees.json";
 
@@ -13,7 +13,7 @@ export interface Coffee {
 }
 
 interface IAppContextProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 interface IAppContext {
