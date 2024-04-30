@@ -51,7 +51,14 @@ export const styles = StyleSheet.create({
   coffeeImage: {
     width: 320,
     height: 320,
-    transform: [{ translateY: -height * 0.38}],
+    transform: [{ translateY: -height * 0.38 }],
+  },
+  smokeImage: {
+    width: 100,
+    height: 180,
+    zIndex: 1,
+    position: "absolute",
+    transform: [{ translateY: -height * 0.57 }],
   },
   coffeeTitle: {
     fontSize: 26,

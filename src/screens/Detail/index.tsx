@@ -6,6 +6,7 @@ import {Coffee} from "../../context/AppContext";
 import {styles} from "./styles";
 
 const coffeeImage = "../../assets/coffee.png";
+const smokeImage = "../../assets/smoke.png";
 
 interface Params {
     coffee: Coffee;
@@ -44,6 +45,7 @@ export function Detail() {
             </View>
             <View style={styles.CoffeeImageWrapper}>
                 <Image source={require(coffeeImage)} style={styles.coffeeImage}/>
+                <Image source={require(smokeImage)} style={styles.smokeImage}/>
             </View>
         </>
     );
