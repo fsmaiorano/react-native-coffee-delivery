@@ -3,13 +3,13 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 
 export function Quantity() {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   return (
     <View style={styles.container}>
       <View style={styles.quantityContainer}>
         <TouchableOpacity
           style={styles.quantityButton}
-          onPress={() => setQuantity( quantity > 0 ? quantity - 1 : 0 )}
+          onPress={() => setQuantity( quantity > 1 ? quantity - 1 : 1 )}
         >
           <Text style={styles.quantityButtonText}>-</Text>
         </TouchableOpacity>
