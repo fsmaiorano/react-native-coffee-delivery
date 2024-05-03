@@ -5,10 +5,13 @@ import { Detail } from "../screens/Detail";
 import { Home } from "../screens/Home";
 import { THEME } from "../styles/theme";
 import { ShoppingCart } from "phosphor-react-native";
+import { Checkout } from "../screens/Checkout";
+import { useNavigation } from "@react-navigation/native";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 export function AppRoutes() {
+  const navigation = useNavigation();
   return (
     <Navigator
       initialRouteName="home"
@@ -17,6 +20,23 @@ export function AppRoutes() {
       }}
     >
       <Screen name="home" component={Home} />
+      <Screen
+        name="checkout"
+        component={Checkout}
+        options={{
+          headerShown: true,
+          headerBackButtonMenuEnabled: true,
+          customAnimationOnGesture: true,
+          headerShadowVisible: false,
+          headerBackTitleVisible: false,
+          headerBackVisible: true,
+          headerTintColor: "#fff",
+          headerStyle: {
+            backgroundColor: THEME.COLORS.GREY_900,
+          },
+          headerTitle: "Carrinho",
+        }}
+      />
       <Screen
         name="detail"
         component={Detail}
@@ -33,7 +53,10 @@ export function AppRoutes() {
             backgroundColor: THEME.COLORS.GREY_900,
           },
           headerRight: () => (
-            <TouchableOpacity style={[{}]}>
+            <TouchableOpacity
+              style={[{}]}
+              onPress={() => navigation.navigate("checkout")}
+            >
               <ShoppingCart
                 weight="fill"
                 size={32}
