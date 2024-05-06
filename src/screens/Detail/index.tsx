@@ -41,7 +41,7 @@ export function Detail() {
       <View style={styles.footer}>
         <Text style={styles.sizeTitle}>Selecione o tamanho:</Text>
         <Sizes />
-        <Quantity />
+        <Quantity coffee={coffee}/>
       </View>
       <View style={styles.CoffeeImageWrapper}>
         <Image source={require(coffeeImage)} style={styles.coffeeImage} />

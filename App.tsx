@@ -12,6 +12,7 @@ import { Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
 
 import { useFonts } from "expo-font";
 import { AppContextProvider } from "./src/context/AppContext";
+import { CartContextProvider } from "./src/context/CartContext";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -32,7 +33,9 @@ export default function App() {
           translucent
         />
         <AppContextProvider>
-          <Routes />
+          <CartContextProvider>
+            <Routes />
+          </CartContextProvider>
         </AppContextProvider>
       </GestureHandlerRootView>
     );
