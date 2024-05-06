@@ -31,10 +31,10 @@ export function AppRoutes() {
           headerBackTitleVisible: false,
           headerBackVisible: true,
           headerTintColor: "#fff",
+          headerTitle: "Carrinho",
           headerStyle: {
             backgroundColor: THEME.COLORS.GREY_900,
           },
-          headerTitle: "Carrinho",
         }}
       />
       <Screen

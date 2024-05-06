@@ -2,9 +2,10 @@ import { MapPin, ShoppingCart } from "phosphor-react-native";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { THEME } from "../../styles/theme";
 import { styles } from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 export function Header() {
+  const route = useRoute();
   const navigation = useNavigation();
 
   return (
