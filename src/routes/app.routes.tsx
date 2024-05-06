@@ -26,14 +26,15 @@ export function AppRoutes() {
         options={{
           headerShown: true,
           headerBackButtonMenuEnabled: true,
-          customAnimationOnGesture: true,
+          customAnimationOnGesture: false,
           headerShadowVisible: false,
           headerBackTitleVisible: false,
           headerBackVisible: true,
-          headerTintColor: "#fff",
+          headerTintColor: "#000",
+          headerBlurEffect: "light",
           headerTitle: "Carrinho",
           headerStyle: {
-            backgroundColor: THEME.COLORS.GREY_900,
+            backgroundColor: THEME.COLORS.GREY_100,
           },
         }}
       />
