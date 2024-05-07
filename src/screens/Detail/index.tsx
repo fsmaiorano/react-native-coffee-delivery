@@ -1,9 +1,8 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Image, Text, View } from "react-native";
-import { Quantity } from "../../components/quantity";
-import { Sizes } from "../../components/sizes";
 import { Coffee } from "../../context/AppContext";
 import { styles } from "./styles";
+import { Order } from "../../components/order";
 
 const coffeeImage = "../../assets/coffee.png";
 const smokeImage = "../../assets/smoke.png";
@@ -40,8 +39,7 @@ export function Detail() {
       </View>
       <View style={styles.footer}>
         <Text style={styles.sizeTitle}>Selecione o tamanho:</Text>
-        <Sizes />
-        <Quantity coffee={coffee}/>
+        <Order coffee={coffee} />
       </View>
       <View style={styles.CoffeeImageWrapper}>
         <Image source={require(coffeeImage)} style={styles.coffeeImage} />
