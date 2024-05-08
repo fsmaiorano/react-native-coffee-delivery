@@ -9,8 +9,6 @@ import { THEME } from "../../styles/theme";
 import { styles } from "./styles";
 
 export function Home() {
-  const navigation = useNavigation();
-
   return (
     <ScrollView nestedScrollEnabled>
       <View style={{ padding: 25, backgroundColor: THEME.COLORS.GREY_900 }}>

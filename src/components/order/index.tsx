@@ -35,16 +35,6 @@ export function Order({ coffee }: IOrder) {
       coffee: coffee,
       size: selectedSize,
     });
-
-    // if (item) {
-    //   item.quantity += quantity;
-    // } else {
-    //   cardItems.push({
-    //     quantity: quantity,
-    //     coffee: coffee,
-    //     size: selectedSize,
-    //   });
-    // }
   };
 
   useEffect(() => {

@@ -18,31 +18,27 @@ export function Products() {
   };
 
   return (
-    <>
-      <FlatList
-        data={filteredCoffees?.length ? filteredCoffees : coffees}
-        renderItem={({ item }) => (
-          <Pressable style={styles.card} onPress={() => goToDetails(item)}>
-            <View style={styles.imageWrapper}>
-              <Image
-                source={imageMapper[item.imageSrc as keyof typeof imageMapper]}
-                style={styles.coffeeImage}
-              />
-            </View>
-            <View style={styles.contentWrapper}>
-              <Text style={styles.coffeeTitle}>{item.title}</Text>
-              <Text style={styles.coffeeDescription}>{item.description}</Text>
-              <Text>
-                <Text style={styles.coffeValuePrefix}>R$ </Text>
-                <Text style={styles.coffeeValue}>
-                  {handlePrice(item.value)}
-                </Text>
-              </Text>
-            </View>
-          </Pressable>
-        )}
-        keyExtractor={(item) => item.id.toString()}
-      />
-    </>
+    <FlatList
+      data={filteredCoffees?.length ? filteredCoffees : coffees}
+      renderItem={({ item }) => (
+        <Pressable style={styles.card} onPress={() => goToDetails(item)}>
+          <View style={styles.imageWrapper}>
+            <Image
+              source={imageMapper[item.imageSrc as keyof typeof imageMapper]}
+              style={styles.coffeeImage}
+            />
+          </View>
+          <View style={styles.contentWrapper}>
+            <Text style={styles.coffeeTitle}>{item.title}</Text>
+            <Text style={styles.coffeeDescription}>{item.description}</Text>
+            <Text>
+              <Text style={styles.coffeValuePrefix}>R$ </Text>
+              <Text style={styles.coffeeValue}>{handlePrice(item.value)}</Text>
+            </Text>
+          </View>
+        </Pressable>
+      )}
+      keyExtractor={(item) => item.id.toString()}
+    />
   );
 }

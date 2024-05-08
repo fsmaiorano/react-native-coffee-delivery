@@ -5,7 +5,6 @@ import { styles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 export function Header() {
-  const route = useRoute();
   const navigation = useNavigation();
 
   return (
