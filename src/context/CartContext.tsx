@@ -28,8 +28,10 @@ export function CartContextProvider({ children }: IAppContextProps) {
 
     if (item) {
       item.quantity += cartItem.quantity;
+      setCartItems([...cartItems]);
     } else {
       setCartItems([...cartItems, cartItem]);
+      console.log("addToCart" + cartItems);
     }
   };
 
