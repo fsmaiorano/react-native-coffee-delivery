@@ -26,14 +26,10 @@ export function CartContextProvider({ children }: IAppContextProps) {
       (item) => item.coffee.id === cartItem.coffee.id
     );
 
-    console.log("item", item);
-
     if (item) {
       item.quantity += cartItem.quantity;
-      console.log("cartItems", cartItems);
     } else {
       setCartItems([...cartItems, cartItem]);
-      console.log("cartItems", cartItems);
     }
   };
 
