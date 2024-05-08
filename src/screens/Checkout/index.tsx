@@ -8,6 +8,8 @@ import { CartContext } from "../../context/CartContext";
 export function Checkout() {
   const { cartItems } = useContext(CartContext);
 
+  console.log(cartItems);
+
   return (
     <>
       <StatusBar
@@ -16,15 +18,17 @@ export function Checkout() {
       />
       <ScrollView>
         <View>
-          <Text>Checkout</Text>
-          {cartItems.map((item) => (
-            <View key={item.coffee.id}>
-              <Text>{item.coffee.title}</Text>
-              <Text>{item.size}</Text>
-              <Text>{item.quantity}</Text>
-            </View>
-          ))}
-        
+          {cartItems.length === 0 ? (
+            <Text>Nenhum item no carrinho</Text>
+          ) : (
+            cartItems?.map((item) => (
+              <View key={item.coffee.id + item.size}>
+                <Text>{item.coffee.title}</Text>
+                <Text>{item.size}</Text>
+                <Text>{item.quantity}</Text>
+              </View>
+            ))
+          )}
         </View>
       </ScrollView>
     </>

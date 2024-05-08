@@ -26,17 +26,18 @@ export function CartContextProvider({ children }: IAppContextProps) {
       (item) => item.coffee.id === cartItem.coffee.id
     );
 
-    if (item) {
+    if (item && item.size === cartItem.size) {
       item.quantity += cartItem.quantity;
       setCartItems([...cartItems]);
+    } else if (item && item.size !== cartItem.size) {
+      setCartItems([...cartItems, cartItem]);
     } else {
       setCartItems([...cartItems, cartItem]);
-      console.log("addToCart" + cartItems);
     }
   };
 
   return (
-    <CartContext.Provider value={{ cartItems: [], addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart }}>
       {children}
     </CartContext.Provider>
   );

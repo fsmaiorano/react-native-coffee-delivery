@@ -25,8 +25,6 @@ export function Order({ coffee }: IOrder) {
   };
 
   const handleAddToCart = () => {
-    const item = cartItems.find((item) => item.coffee.id === coffee.id);
-
     if (selectedSize === "") {
       alert("Selecione o tamanho do café antes de adicionar ao carrinho!");
       return;
