@@ -14,9 +14,10 @@ import { imageMapper } from "../../helpers/image-mapper";
 
 export function Checkout() {
   const { cartItems, handleCartItems } = useContext(CartContext);
-  const [quantity, setQuantity] = useState(0);
 
-  console.log(cartItems);
+  const handlePrice = (price: number) => {
+    return price.toFixed(2).replace(".", ",");
+  };
 
   const handleQuantity = (cartItem: CartItem) => {
     const item = cartItems.find(
@@ -25,16 +26,6 @@ export function Checkout() {
 
     handleCartItems(cartItem);
   };
-
-  const handleDecreaseQuantity = (quantity: number) => {};
-
-  const handleIncreaseQuantity = (quantity: number) => {};
-
-  // useEffect(() => {
-  //   cartItems.forEach((item) => {
-  //     setQuantity(item.quantity);
-  //   });
-  // }, []);
 
   return (
     <>
@@ -86,7 +77,7 @@ export function Checkout() {
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text>{item.coffee.value}</Text>
+                <Text>R$ {handlePrice(item.coffee.value * item.quantity)}</Text>
               </View>
             ))
           )}

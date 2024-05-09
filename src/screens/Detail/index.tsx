@@ -1,4 +1,4 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { Image, Text, View } from "react-native";
 import { Coffee } from "../../context/AppContext";
 import { styles } from "./styles";

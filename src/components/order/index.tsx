@@ -13,7 +13,7 @@ export function Order({ coffee }: IOrder) {
   const [sizes, setSizes] = useState<string[]>([]);
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const { cartItems, addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   const getAllSizes = () => {
     const sizes = ["114ml", "140ml", "227ml"];

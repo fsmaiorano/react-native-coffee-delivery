@@ -24,14 +24,13 @@ export function CartContextProvider({ children }: IAppContextProps) {
 
   const addToCart = (cartItem: CartItem) => {
     const item = cartItems.find(
-      (item) => item.coffee.id === cartItem.coffee.id
+      (item) =>
+        item.coffee.id === cartItem.coffee.id && item.size === cartItem.size
     );
 
-    if (item && item.size === cartItem.size) {
+    if (item) {
       item.quantity += cartItem.quantity;
       setCartItems([...cartItems]);
-    } else if (item && item.size !== cartItem.size) {
-      setCartItems([...cartItems, cartItem]);
     } else {
       setCartItems([...cartItems, cartItem]);
     }
@@ -39,7 +38,8 @@ export function CartContextProvider({ children }: IAppContextProps) {
 
   const handleCartItems = (cartItem: CartItem) => {
     const item = cartItems.find(
-      (item) => item.coffee.id === cartItem.coffee.id && item.size === cartItem.size
+      (item) =>
+        item.coffee.id === cartItem.coffee.id && item.size === cartItem.size
     );
 
     if (item) {
