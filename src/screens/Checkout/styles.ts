@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-start",
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: THEME.COLORS.GREY_300,
@@ -18,6 +18,19 @@ export const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 25,
+  },
+  cardTitle: {
+    fontSize: 20,
+    lineHeight: 32,
+    color: THEME.COLORS.GREY_800,
+  },
+  cardPrice: {
+    fontSize: 16,
+    color: THEME.COLORS.PURPLE_500,
+  },
+  cardSize: {
+    fontSize: 18,
+    color: THEME.COLORS.GREY_600,
   },
   quantityContainer: {
     flexDirection: "row",

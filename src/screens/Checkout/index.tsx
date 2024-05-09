@@ -49,8 +49,8 @@ export function Checkout() {
                   }
                 />
                 <View>
-                  <Text>{item.coffee.title}</Text>
-                  <Text>{item.size}</Text>
+                  <Text style={styles.cardTitle}>{item.coffee.title}</Text>
+                  <Text style={styles.cardSize}>{item.size}</Text>
                   <View style={styles.quantityContainer}>
                     <TouchableOpacity
                       style={styles.quantityButton}
@@ -77,7 +77,7 @@ export function Checkout() {
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text>R$ {handlePrice(item.coffee.value * item.quantity)}</Text>
+                <Text style={styles.cardPrice}>R$ {handlePrice(item.coffee.value * item.quantity)}</Text>
               </View>
             ))
           )}
