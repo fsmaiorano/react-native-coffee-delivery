@@ -1,7 +1,10 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, Platform, StyleSheet } from "react-native";
 import { THEME } from "../../styles/theme";
 
 const { width, height } = Dimensions.get("window");
+
+const top = Platform.OS === "ios" ? 50 : 70;
+
 export const styles = StyleSheet.create({
   header: {
     height: "65%",
@@ -92,7 +95,7 @@ export const styles = StyleSheet.create({
     fontSize: 40,
   },
   sizeTitle: {
-    paddingTop: 50,
+    paddingTop: top,
     paddingLeft: 50,
     color: THEME.COLORS.GREY_700,
     fontSize: THEME.SIZES.FONT.MEDIUM,

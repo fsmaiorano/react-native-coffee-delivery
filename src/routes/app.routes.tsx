@@ -1,13 +1,17 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { Button } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { Detail } from "../screens/Detail";
 import { Home } from "../screens/Home";
 import { THEME } from "../styles/theme";
+import { ShoppingCart } from "phosphor-react-native";
+import { Checkout } from "../screens/Checkout";
+import { useNavigation } from "@react-navigation/native";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 export function AppRoutes() {
+  const navigation = useNavigation();
   return (
     <Navigator
       initialRouteName="home"
@@ -17,6 +21,24 @@ export function AppRoutes() {
     >
       <Screen name="home" component={Home} />
       <Screen
+        name="checkout"
+        component={Checkout}
+        options={{
+          headerShown: true,
+          headerBackButtonMenuEnabled: true,
+          customAnimationOnGesture: false,
+          headerShadowVisible: false,
+          headerBackTitleVisible: false,
+          headerBackVisible: true,
+          headerTintColor: "#000",
+          headerBlurEffect: "light",
+          headerTitle: "Carrinho",
+          headerStyle: {
+            backgroundColor: THEME.COLORS.GREY_100,
+          },
+        }}
+      />
+      <Screen
         name="detail"
         component={Detail}
         options={{
@@ -25,18 +47,23 @@ export function AppRoutes() {
           headerBlurEffect: "light",
           headerBackButtonMenuEnabled: true,
           customAnimationOnGesture: true,
-          headerShadowVisible : false,
+          headerShadowVisible: false,
           headerBackTitleVisible: false,
           headerTintColor: "#fff",
           headerStyle: {
             backgroundColor: THEME.COLORS.GREY_900,
           },
           headerRight: () => (
-            <Button
-              onPress={() => alert("This is a button!")}
-              title="Info"
-              color="#fff"
-            />
+            <TouchableOpacity
+              style={[{}]}
+              onPress={() => navigation.navigate("checkout")}
+            >
+              <ShoppingCart
+                weight="fill"
+                size={32}
+                color={THEME.COLORS.YELLOW_700}
+              />
+            </TouchableOpacity>
           ),
         }}
       />

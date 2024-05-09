@@ -8,7 +8,7 @@ import { imageMapper } from "../../helpers/image-mapper";
 
 export function Products() {
   const navigation = useNavigation();
-  const { coffees, filteredCoffees, selectedTag } = useContext(AppContext);
+  const { coffees, filteredCoffees } = useContext(AppContext);
   const handlePrice = (price: number) => {
     return price.toFixed(2).replace(".", ",");
   };
