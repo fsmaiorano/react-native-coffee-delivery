@@ -5,6 +5,7 @@ interface ICartContext {
   cartItems: CartItem[];
   addToCart: (cartItem: CartItem) => void;
   handleCartItems: (cartItem: CartItem) => void;
+  removeCartItem: (cartItem: CartItem) => void;
 }
 
 interface IAppContextProps {
@@ -49,8 +50,19 @@ export function CartContextProvider({ children }: IAppContextProps) {
     setCartItems([...cartItems]);
   };
 
+  const removeCartItem = (cartItem: CartItem) => {
+    const newCartItems = cartItems.filter(
+      (item) =>
+        item.coffee.id !== cartItem.coffee.id || item.size !== cartItem.size
+    );
+
+    setCartItems(newCartItems);
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, handleCartItems }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, handleCartItems, removeCartItem }}
+    >
       {children}
     </CartContext.Provider>
   );

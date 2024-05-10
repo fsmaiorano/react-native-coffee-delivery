@@ -14,7 +14,8 @@ import { imageMapper } from "../../helpers/image-mapper";
 import { Trash } from "phosphor-react-native";
 
 export function Checkout() {
-  const { cartItems, handleCartItems } = useContext(CartContext);
+  const { cartItems, handleCartItems, removeCartItem } =
+    useContext(CartContext);
 
   const handlePrice = (price: number) => {
     return price.toFixed(2).replace(".", ",");
@@ -22,6 +23,10 @@ export function Checkout() {
 
   const handleQuantity = (cartItem: CartItem) => {
     handleCartItems(cartItem);
+  };
+
+  const removeItem = (cartItem: CartItem) => {
+    removeCartItem(cartItem);
   };
 
   return (
@@ -73,7 +78,7 @@ export function Checkout() {
                       <Text style={styles.quantityButtonText}>+</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.trashButton}>
+                    <TouchableOpacity style={styles.trashButton} onPress={() => removeItem(item)}>
                       <Trash size={24} color={THEME.COLORS.PURPLE_500} />
                     </TouchableOpacity>
                   </View>

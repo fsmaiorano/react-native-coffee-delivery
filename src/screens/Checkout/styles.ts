@@ -57,8 +57,10 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
-    backgroundColor: THEME.COLORS.GREY_100,
-    marginLeft: 30,
+    backgroundColor: THEME.COLORS.GREY_300,
+    marginLeft: 15,
+    borderWidth: 1,
+    borderColor: THEME.COLORS.GREY_300,
   },
   quantityButtonText: {
     fontSize: 35,
