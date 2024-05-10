@@ -4,7 +4,7 @@ import { THEME } from "../../styles/theme";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "stretch",
+    backgroundColor: THEME.COLORS.GREY_300,
   },
   card: {
     flexDirection: "row",
@@ -69,5 +69,13 @@ export const styles = StyleSheet.create({
   },
   quantity: {
     fontSize: 20,
+  },
+  swipeableContainer: {
+    width: "100%",
+  },
+  swipeableRemove: {
+    backgroundColor: THEME.COLORS.DANGER_LIGHT,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
