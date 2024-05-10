@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Pressable,
+  Button,
 } from "react-native";
 import { THEME } from "../../styles/theme";
 import { useContext, useRef } from "react";
@@ -130,6 +131,25 @@ export function Checkout() {
           )}
         </View>
       </ScrollView>
+      <View style={styles.footer}>
+        <View style={styles.footerContent}>
+          <Text>Valor total</Text>
+          <Text style={styles.cardPrice}>
+            R${" "}
+            {handlePrice(
+              cartItems.reduce(
+                (acc, item) => acc + item.coffee.value * item.quantity,
+                0
+              )
+            )}
+          </Text>
+        </View>
+        <View style={styles.footerActions}>
+          <TouchableOpacity style={styles.checkoutButton}>
+            <Text style={styles.checkoutButtonText}>Confirmar pedido</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </>
   );
 }

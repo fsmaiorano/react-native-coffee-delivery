@@ -3,6 +3,27 @@ import { THEME } from "../../styles/theme";
 
 export const styles = StyleSheet.create({
   container: {},
+  footer: {
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: 150,
+    padding: 32,
+    borderTopWidth: 1,
+    borderTopColor: THEME.COLORS.GREY_300,
+    elevation: 2,
+    backgroundColor: THEME.COLORS.WHITE,
+  },
+  footerContent: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+  },
+  footerActions: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+  },
   card: {
     flexDirection: "row",
     borderBottomWidth: 1,
@@ -91,5 +112,17 @@ export const styles = StyleSheet.create({
     backgroundColor: THEME.COLORS.DANGER_LIGHT,
     justifyContent: "center",
     alignItems: "center",
+  },
+  checkoutButton: {
+    backgroundColor: THEME.COLORS.YELLOW_700,
+    borderRadius: 10,
+    padding: 16,
+    elevation: 1,
+    width: "100%",
+  },
+  checkoutButtonText: {
+    color: THEME.COLORS.WHITE,
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
