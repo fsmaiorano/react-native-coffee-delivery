@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Pressable,
+  Alert,
 } from "react-native";
 import { THEME } from "../../styles/theme";
 import { useContext, useRef } from "react";
@@ -35,6 +36,11 @@ export function Checkout() {
   };
 
   const doCheckout = () => {
+    if (cartItems.length === 0) {
+      Alert.alert("Atenção","Adicione itens ao carrinho para finalizar o pedido");
+      return;
+    }
+
     swipeableRefs.current.forEach((ref) => ref.close());
     navigation.navigate("delivery");
   };
@@ -48,7 +54,7 @@ export function Checkout() {
       <ScrollView style={styles.container}>
         <View>
           {cartItems.length === 0 ? (
-            <Text>Nenhum item no carrinho</Text>
+            <Text></Text>
           ) : (
             cartItems?.map((item) => (
               <Swipeable

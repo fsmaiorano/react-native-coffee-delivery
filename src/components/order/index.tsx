@@ -1,4 +1,4 @@
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { Alert, FlatList, Text, TouchableOpacity, View } from "react-native";
 
 import { useContext, useEffect, useState } from "react";
 import { styles } from "./styles";
@@ -26,7 +26,10 @@ export function Order({ coffee }: IOrder) {
 
   const handleAddToCart = () => {
     if (selectedSize === "") {
-      alert("Selecione o tamanho do café antes de adicionar ao carrinho!");
+      Alert.alert(
+        "Atenção",
+        "Selecione o tamanho do café antes de adicionar ao carrinho!"
+      );
       return;
     }
 

@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 import { THEME } from "../../styles/theme";
 
 export const styles = StyleSheet.create({
-  container: {},
+  container: {
+  },
   footer: {
     flexDirection: "column",
     justifyContent: "space-between",
