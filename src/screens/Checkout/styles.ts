@@ -4,25 +4,45 @@ import { THEME } from "../../styles/theme";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: THEME.COLORS.GREY_100,
+    backgroundColor: THEME.COLORS.GREY_300,
   },
   card: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "stretch",
     padding: 16,
     borderBottomWidth: 1,
+    borderTopWidth: 1,
     borderBottomColor: THEME.COLORS.GREY_300,
+    borderTopColor: THEME.COLORS.GREY_300,
   },
   cardImage: {
     width: 80,
     height: 80,
     borderRadius: 25,
+    marginRight: 32,
+  },
+  cardTitle: {
+    fontSize: 20,
+    lineHeight: 32,
+    color: THEME.COLORS.GREY_800,
+    width: 215,
+  },
+  cardPrice: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cardSize: {
+    fontSize: 18,
+    color: THEME.COLORS.GREY_600,
   },
   quantityContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    marginTop: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: THEME.COLORS.GREY_300,
     width: 115,
   },
   quantityButton: {
@@ -31,6 +51,17 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  trashButton: {
+    width: 50,
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    backgroundColor: THEME.COLORS.GREY_300,
+    marginLeft: 15,
+    borderWidth: 1,
+    borderColor: THEME.COLORS.GREY_300,
+  },
   quantityButtonText: {
     fontSize: 35,
     fontWeight: "300",
@@ -38,5 +69,13 @@ export const styles = StyleSheet.create({
   },
   quantity: {
     fontSize: 20,
+  },
+  swipeableContainer: {
+    width: "100%",
+  },
+  swipeableRemove: {
+    backgroundColor: THEME.COLORS.DANGER_LIGHT,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
