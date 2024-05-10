@@ -7,6 +7,7 @@ import { THEME } from "../styles/theme";
 import { ShoppingCart } from "phosphor-react-native";
 import { Checkout } from "../screens/Checkout";
 import { useNavigation } from "@react-navigation/native";
+import { Delivery } from "../screens/Delivery";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export function AppRoutes() {
       }}
     >
       <Screen name="home" component={Home} />
+      <Screen name="delivery" component={Delivery} />
       <Screen
         name="checkout"
         component={Checkout}

@@ -6,7 +6,6 @@ import {
   Image,
   TouchableOpacity,
   Pressable,
-  Button,
 } from "react-native";
 import { THEME } from "../../styles/theme";
 import { useContext, useRef } from "react";
@@ -15,8 +14,10 @@ import { styles } from "./styles";
 import { imageMapper } from "../../helpers/image-mapper";
 import { Trash } from "phosphor-react-native";
 import { Swipeable } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 export function Checkout() {
+  const navigation = useNavigation();
   const { cartItems, handleCartItems, removeCartItem } =
     useContext(CartContext);
   const swipeableRefs = useRef<Swipeable[]>([]);
@@ -31,6 +32,11 @@ export function Checkout() {
 
   const removeItem = (cartItem: CartItem) => {
     removeCartItem(cartItem);
+  };
+
+  const doCheckout = () => {
+    swipeableRefs.current.forEach((ref) => ref.close());
+    navigation.navigate("delivery");
   };
 
   return (
@@ -145,7 +151,10 @@ export function Checkout() {
           </Text>
         </View>
         <View style={styles.footerActions}>
-          <TouchableOpacity style={styles.checkoutButton}>
+          <TouchableOpacity
+            style={styles.checkoutButton}
+            onPress={() => doCheckout()}
+          >
             <Text style={styles.checkoutButtonText}>Confirmar pedido</Text>
           </TouchableOpacity>
         </View>
