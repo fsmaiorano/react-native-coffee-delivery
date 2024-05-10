@@ -119,10 +119,14 @@ export const styles = StyleSheet.create({
     padding: 16,
     elevation: 1,
     width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   checkoutButtonText: {
     color: THEME.COLORS.WHITE,
     fontSize: 16,
     fontWeight: "bold",
+    textTransform: "uppercase",
+    fontFamily: THEME.FONTS.ROBOTO_BOLD,
   },
 });
