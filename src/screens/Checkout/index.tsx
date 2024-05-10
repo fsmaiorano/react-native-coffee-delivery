@@ -38,8 +38,8 @@ export function Checkout() {
         barStyle="dark-content"
         backgroundColor={THEME.COLORS.GREY_100}
       />
-      <ScrollView>
-        <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <View>
           {cartItems.length === 0 ? (
             <Text>Nenhum item no carrinho</Text>
           ) : (
@@ -67,45 +67,50 @@ export function Checkout() {
                 )}
               >
                 <View style={styles.card}>
-                  <Image
-                    style={styles.cardImage}
-                    source={
-                      imageMapper[
-                        item.coffee.imageSrc as keyof typeof imageMapper
-                      ]
-                    }
-                  />
-                  <View>
-                    <Text style={styles.cardTitle}>{item.coffee.title}</Text>
-                    <Text style={styles.cardSize}>{item.size}</Text>
-                    <View style={styles.quantityContainer}>
-                      <TouchableOpacity
-                        style={styles.quantityButton}
-                        onPress={() =>
-                          handleCartItems(
-                            item.quantity > 1
-                              ? { ...item, quantity: item.quantity - 1 }
-                              : item
-                          )
-                        }
-                      >
-                        <Text style={styles.quantityButtonText}>-</Text>
-                      </TouchableOpacity>
+                  <View style={styles.cardImageWrapper}>
+                    <Image
+                      style={styles.cardImage}
+                      source={
+                        imageMapper[
+                          item.coffee.imageSrc as keyof typeof imageMapper
+                        ]
+                      }
+                    />
+                  </View>
+                  <View style={styles.cardContentWrapper}>
+                    <View>
+                      <Text style={styles.cardTitle}>{item.coffee.title}</Text>
+                      <Text style={styles.cardSize}>{item.size}</Text>
+                    </View>
+                    <View style={styles.actionsWrapper}>
+                      <View style={styles.quantityContainer}>
+                        <TouchableOpacity
+                          style={styles.quantityButton}
+                          onPress={() =>
+                            handleCartItems(
+                              item.quantity > 1
+                                ? { ...item, quantity: item.quantity - 1 }
+                                : item
+                            )
+                          }
+                        >
+                          <Text style={styles.quantityButtonText}>-</Text>
+                        </TouchableOpacity>
 
-                      <Text style={styles.quantity}>{item.quantity}</Text>
+                        <Text style={styles.quantity}>{item.quantity}</Text>
 
-                      <TouchableOpacity
-                        style={styles.quantityButton}
-                        onPress={() =>
-                          handleQuantity({
-                            ...item,
-                            quantity: item.quantity + 1,
-                          })
-                        }
-                      >
-                        <Text style={styles.quantityButtonText}>+</Text>
-                      </TouchableOpacity>
-
+                        <TouchableOpacity
+                          style={styles.quantityButton}
+                          onPress={() =>
+                            handleQuantity({
+                              ...item,
+                              quantity: item.quantity + 1,
+                            })
+                          }
+                        >
+                          <Text style={styles.quantityButtonText}>+</Text>
+                        </TouchableOpacity>
+                      </View>
                       <TouchableOpacity
                         style={styles.trashButton}
                         onPress={() => removeItem(item)}
@@ -114,9 +119,11 @@ export function Checkout() {
                       </TouchableOpacity>
                     </View>
                   </View>
-                  <Text style={styles.cardPrice}>
-                    R$ {handlePrice(item.coffee.value * item.quantity)}
-                  </Text>
+                  <View style={styles.cardPriceWrapper}>
+                    <Text style={styles.cardPrice}>
+                      R$ {handlePrice(item.coffee.value * item.quantity)}
+                    </Text>
+                  </View>
                 </View>
               </Swipeable>
             ))

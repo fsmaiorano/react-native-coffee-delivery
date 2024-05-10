@@ -2,48 +2,63 @@ import { StyleSheet } from "react-native";
 import { THEME } from "../../styles/theme";
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: THEME.COLORS.GREY_300,
-  },
+  container: {},
   card: {
     flexDirection: "row",
-    alignItems: "stretch",
-    padding: 16,
     borderBottomWidth: 1,
     borderTopWidth: 1,
     borderBottomColor: THEME.COLORS.GREY_300,
     borderTopColor: THEME.COLORS.GREY_300,
+    justifyContent: "space-between",
+    padding: 16,
+  },
+  cardImageWrapper: {
+    width: "20%",
+    height: 100,
+  },
+  cardContentWrapper: {
+    alignItems: "flex-start",
+    width: "45%",
+  },
+  actionsWrapper: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 10,
+    width: "80%",
+  },
+  cardPriceWrapper: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    marginTop: 6,
+    width: "20%",
   },
   cardImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 25,
-    marginRight: 32,
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
   },
   cardTitle: {
-    fontSize: 20,
+    fontSize: 18,
     lineHeight: 32,
     color: THEME.COLORS.GREY_800,
     width: 215,
+  },
+  cardSize: {
+    fontSize: 14,
+    color: THEME.COLORS.GREY_600,
   },
   cardPrice: {
     fontSize: 16,
     fontWeight: "bold",
   },
-  cardSize: {
-    fontSize: 18,
-    color: THEME.COLORS.GREY_600,
-  },
   quantityContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 10,
+    justifyContent: "flex-start",
     borderRadius: 10,
     borderWidth: 1,
     borderColor: THEME.COLORS.GREY_300,
-    width: 115,
   },
   quantityButton: {
     width: 50,
@@ -58,7 +73,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
     backgroundColor: THEME.COLORS.GREY_300,
-    marginLeft: 15,
     borderWidth: 1,
     borderColor: THEME.COLORS.GREY_300,
   },
