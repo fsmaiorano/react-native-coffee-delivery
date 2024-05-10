@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Pressable,
+  Alert,
 } from "react-native";
 import { THEME } from "../../styles/theme";
 import { useContext, useRef } from "react";
@@ -14,8 +15,10 @@ import { styles } from "./styles";
 import { imageMapper } from "../../helpers/image-mapper";
 import { Trash } from "phosphor-react-native";
 import { Swipeable } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 export function Checkout() {
+  const navigation = useNavigation();
   const { cartItems, handleCartItems, removeCartItem } =
     useContext(CartContext);
   const swipeableRefs = useRef<Swipeable[]>([]);
@@ -32,16 +35,26 @@ export function Checkout() {
     removeCartItem(cartItem);
   };
 
+  const doCheckout = () => {
+    if (cartItems.length === 0) {
+      Alert.alert("Atenção","Adicione itens ao carrinho para finalizar o pedido");
+      return;
+    }
+
+    swipeableRefs.current.forEach((ref) => ref.close());
+    navigation.navigate("delivery");
+  };
+
   return (
     <>
       <StatusBar
         barStyle="dark-content"
         backgroundColor={THEME.COLORS.GREY_100}
       />
-      <ScrollView>
-        <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <View>
           {cartItems.length === 0 ? (
-            <Text>Nenhum item no carrinho</Text>
+            <Text></Text>
           ) : (
             cartItems?.map((item) => (
               <Swipeable
@@ -67,45 +80,50 @@ export function Checkout() {
                 )}
               >
                 <View style={styles.card}>
-                  <Image
-                    style={styles.cardImage}
-                    source={
-                      imageMapper[
-                        item.coffee.imageSrc as keyof typeof imageMapper
-                      ]
-                    }
-                  />
-                  <View>
-                    <Text style={styles.cardTitle}>{item.coffee.title}</Text>
-                    <Text style={styles.cardSize}>{item.size}</Text>
-                    <View style={styles.quantityContainer}>
-                      <TouchableOpacity
-                        style={styles.quantityButton}
-                        onPress={() =>
-                          handleCartItems(
-                            item.quantity > 1
-                              ? { ...item, quantity: item.quantity - 1 }
-                              : item
-                          )
-                        }
-                      >
-                        <Text style={styles.quantityButtonText}>-</Text>
-                      </TouchableOpacity>
+                  <View style={styles.cardImageWrapper}>
+                    <Image
+                      style={styles.cardImage}
+                      source={
+                        imageMapper[
+                          item.coffee.imageSrc as keyof typeof imageMapper
+                        ]
+                      }
+                    />
+                  </View>
+                  <View style={styles.cardContentWrapper}>
+                    <View>
+                      <Text style={styles.cardTitle}>{item.coffee.title}</Text>
+                      <Text style={styles.cardSize}>{item.size}</Text>
+                    </View>
+                    <View style={styles.actionsWrapper}>
+                      <View style={styles.quantityContainer}>
+                        <TouchableOpacity
+                          style={styles.quantityButton}
+                          onPress={() =>
+                            handleCartItems(
+                              item.quantity > 1
+                                ? { ...item, quantity: item.quantity - 1 }
+                                : item
+                            )
+                          }
+                        >
+                          <Text style={styles.quantityButtonText}>-</Text>
+                        </TouchableOpacity>
 
-                      <Text style={styles.quantity}>{item.quantity}</Text>
+                        <Text style={styles.quantity}>{item.quantity}</Text>
 
-                      <TouchableOpacity
-                        style={styles.quantityButton}
-                        onPress={() =>
-                          handleQuantity({
-                            ...item,
-                            quantity: item.quantity + 1,
-                          })
-                        }
-                      >
-                        <Text style={styles.quantityButtonText}>+</Text>
-                      </TouchableOpacity>
-
+                        <TouchableOpacity
+                          style={styles.quantityButton}
+                          onPress={() =>
+                            handleQuantity({
+                              ...item,
+                              quantity: item.quantity + 1,
+                            })
+                          }
+                        >
+                          <Text style={styles.quantityButtonText}>+</Text>
+                        </TouchableOpacity>
+                      </View>
                       <TouchableOpacity
                         style={styles.trashButton}
                         onPress={() => removeItem(item)}
@@ -114,15 +132,39 @@ export function Checkout() {
                       </TouchableOpacity>
                     </View>
                   </View>
-                  <Text style={styles.cardPrice}>
-                    R$ {handlePrice(item.coffee.value * item.quantity)}
-                  </Text>
+                  <View style={styles.cardPriceWrapper}>
+                    <Text style={styles.cardPrice}>
+                      R$ {handlePrice(item.coffee.value * item.quantity)}
+                    </Text>
+                  </View>
                 </View>
               </Swipeable>
             ))
           )}
         </View>
       </ScrollView>
+      <View style={styles.footer}>
+        <View style={styles.footerContent}>
+          <Text>Valor total</Text>
+          <Text style={styles.cardPrice}>
+            R${" "}
+            {handlePrice(
+              cartItems.reduce(
+                (acc, item) => acc + item.coffee.value * item.quantity,
+                0
+              )
+            )}
+          </Text>
+        </View>
+        <View style={styles.footerActions}>
+          <TouchableOpacity
+            style={styles.checkoutButton}
+            onPress={() => doCheckout()}
+          >
+            <Text style={styles.checkoutButtonText}>Confirmar pedido</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </>
   );
 }

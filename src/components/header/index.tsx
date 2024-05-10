@@ -3,9 +3,12 @@ import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { THEME } from "../../styles/theme";
 import { styles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 export function Header() {
   const navigation = useNavigation();
+  const { cartItems } = useContext(CartContext);
 
   return (
     <View style={styles.container}>

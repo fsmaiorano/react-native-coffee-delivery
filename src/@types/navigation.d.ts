@@ -4,6 +4,7 @@ export declare global {
       home: undefined;
       detail: { coffee: Coffee };
       checkout: undefined;
+      delivery: undefined;
     }
   }
 }
