@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { THEME } from "../../styles/theme";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { CartContext, type CartItem } from "../../context/CartContext";
 import { styles } from "./styles";
 import { imageMapper } from "../../helpers/image-mapper";
+import { Trash } from "phosphor-react-native";
 
 export function Checkout() {
   const { cartItems, handleCartItems } = useContext(CartContext);
@@ -20,10 +21,6 @@ export function Checkout() {
   };
 
   const handleQuantity = (cartItem: CartItem) => {
-    const item = cartItems.find(
-      (item) => item.coffee.id === cartItem.coffee.id
-    );
-
     handleCartItems(cartItem);
   };
 
@@ -34,7 +31,7 @@ export function Checkout() {
         backgroundColor={THEME.COLORS.GREY_100}
       />
       <ScrollView>
-        <View>
+        <View style={styles.container}>
           {cartItems.length === 0 ? (
             <Text>Nenhum item no carrinho</Text>
           ) : (
@@ -75,9 +72,15 @@ export function Checkout() {
                     >
                       <Text style={styles.quantityButtonText}>+</Text>
                     </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.trashButton}>
+                      <Trash size={24} color={THEME.COLORS.PURPLE_500} />
+                    </TouchableOpacity>
                   </View>
                 </View>
-                <Text style={styles.cardPrice}>R$ {handlePrice(item.coffee.value * item.quantity)}</Text>
+                <Text style={styles.cardPrice}>
+                  R$ {handlePrice(item.coffee.value * item.quantity)}
+                </Text>
               </View>
             ))
           )}
