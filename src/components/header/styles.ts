@@ -1,15 +1,21 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 import { THEME } from "../../styles/theme";
 
+const height = Platform.OS === "ios" ? 100 : 70;
 export const styles = StyleSheet.create({
   container: {
-    height: 100,
+    flexDirection: "row",
+    height: height,
     backgroundColor: THEME.COLORS.GREY_900,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: "flex-end",
+    justifyContent: "space-between",
   },
   text: {
     color: THEME.COLORS.WHITE,
+  },
+  actions: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
