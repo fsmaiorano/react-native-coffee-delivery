@@ -13,7 +13,7 @@ import { useContext, useRef } from "react";
 import { CartContext, type CartItem } from "../../context/CartContext";
 import { styles } from "./styles";
 import { imageMapper } from "../../helpers/image-mapper";
-import { Trash } from "phosphor-react-native";
+import { ShoppingCart, Trash } from "phosphor-react-native";
 import { Swipeable } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
@@ -37,7 +37,10 @@ export function Checkout() {
 
   const doCheckout = () => {
     if (cartItems.length === 0) {
-      Alert.alert("Atenção","Adicione itens ao carrinho para finalizar o pedido");
+      Alert.alert(
+        "Atenção",
+        "Adicione itens ao carrinho para finalizar o pedido"
+      );
       return;
     }
 
@@ -54,7 +57,20 @@ export function Checkout() {
       <ScrollView style={styles.container}>
         <View>
           {cartItems.length === 0 ? (
-            <Text></Text>
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                height: 500,
+              }}
+            >
+              <ShoppingCart
+                size={32}
+                color={THEME.COLORS.GREY_600}
+                style={{ marginBottom: 10 }}
+              />
+              <Text>O seu carrinho está vazio</Text>
+            </View>
           ) : (
             cartItems?.map((item) => (
               <Swipeable
@@ -158,8 +174,13 @@ export function Checkout() {
         </View>
         <View style={styles.footerActions}>
           <TouchableOpacity
-            style={styles.checkoutButton}
+            style={
+              cartItems.length === 0
+                ? styles.checkButtonDisabled
+                : styles.checkoutButton
+            }
             onPress={() => doCheckout()}
+            disabled={cartItems.length === 0}
           >
             <Text style={styles.checkoutButtonText}>Confirmar pedido</Text>
           </TouchableOpacity>

@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 import { THEME } from "../../styles/theme";
 
 export const styles = StyleSheet.create({
-  container: {
-  },
+  container: {},
   footer: {
     flexDirection: "column",
     justifyContent: "space-between",
@@ -116,6 +115,15 @@ export const styles = StyleSheet.create({
   },
   checkoutButton: {
     backgroundColor: THEME.COLORS.YELLOW_700,
+    borderRadius: 10,
+    padding: 16,
+    elevation: 1,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  checkButtonDisabled: {
+    backgroundColor: THEME.COLORS.GREY_500,
     borderRadius: 10,
     padding: 16,
     elevation: 1,
