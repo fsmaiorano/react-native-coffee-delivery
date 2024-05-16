@@ -23,6 +23,7 @@ interface IAppContext {
   getCoffees?: () => void;
   applyFilter?: (tags: string[]) => void;
   handleTagSelection: (tag: string) => void;
+  applySearchFilter: (filteredCoffees: Coffee[]) => void;
 }
 
 export const AppContext = createContext({} as IAppContext);
@@ -46,6 +47,15 @@ export function AppContextProvider({ children }: IAppContextProps) {
     setFilteredCoffees(filteredCoffees);
   };
 
+  const applySearchFilter = (filteredCoffess: Coffee[]) => {
+    if (filteredCoffess.length === 0) {
+      setFilteredCoffees([]);
+      return;
+    }
+
+    setFilteredCoffees(filteredCoffess);
+  };
+
   const handleTagSelection = (tag: string) => {
     setSelectedTag(tag);
   };
@@ -58,6 +68,7 @@ export function AppContextProvider({ children }: IAppContextProps) {
         selectedTag,
         getCoffees,
         applyFilter,
+        applySearchFilter,
         handleTagSelection,
       }}
     >
