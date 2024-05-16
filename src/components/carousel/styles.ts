@@ -1,0 +1,85 @@
+import { Platform, StyleSheet } from "react-native";
+import { THEME } from "../../styles/theme";
+
+const top = Platform.OS === "ios" ? 340 : 320;
+export const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    height: 310,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "transparent",
+    position: "absolute",
+    top: top,
+  },
+  coffeeContainer: {
+    width: 208,
+    height: 280,
+    alignItems: "center",
+    padding: 20,
+    backgroundColor: THEME.COLORS.GREY_300,
+    borderWidth: 0.5,
+    borderColor: THEME.COLORS.GREY_500,
+    borderTopLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    borderTopRightRadius: 35,
+    borderBottomLeftRadius: 35,
+    justifyContent: "space-between",
+    margin: 12,
+  },
+  coffeeImage: {
+    width: 110,
+    height: 110,
+    borderRadius: 50,
+    marginTop: -50,
+  },
+  coffeContainerTag: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    flexWrap: "wrap",
+    gap: 10,
+    marginTop: 5,
+  },
+  coffeeTag: {
+    width: 78,
+    height: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 50,
+    backgroundColor: THEME.COLORS.PURPLE_300,
+  },
+  coffeeTagText: {
+    fontSize: 10,
+    fontWeight: "bold",
+    color: THEME.COLORS.PURPLE_700,
+    fontFamily: THEME.FONTS.ROBOTO_BOLD,
+  },
+  coffeeTitle: {
+    fontSize: THEME.SIZES.FONT.LARGE,
+    color: THEME.COLORS.GREY_800,
+    marginTop: 10,
+    textAlign: "center",
+    fontWeight: "bold",
+    fontFamily: THEME.FONTS.BALOO2_BOLD,
+    lineHeight: 25,
+  },
+  coffeeDescription: {
+    fontSize: 14,
+    color: THEME.COLORS.GREY_600,
+    textAlign: "center",
+    fontFamily: THEME.FONTS.ROBOTO_REGULAR,
+  },
+  coffeePricePrefix: {
+    color: THEME.COLORS.YELLOW_700,
+    textAlign: "left",
+    fontFamily: THEME.FONTS.BALOO2_REGULAR,
+    fontSize: THEME.SIZES.FONT.MEDIUM,
+  },
+  coffeePrice: {
+    color: THEME.COLORS.YELLOW_700,
+    textAlign: "left",
+    fontFamily: THEME.FONTS.BALOO2_BOLD,
+    fontSize: THEME.SIZES.FONT.XLARGE,
+  },
+});

@@ -10,7 +10,7 @@ export const THEME = {
     GREY_800: "#403937",
     GREY_900: "#272221",
 
-    PURPLE_300: "#EBE5F9",
+    PURPLE_300: "#D9CCE3",
     PURPLE_500: "#8047F8",
     PURPLE_700: "#4B2995",
     RED_500: "#AB222E",
@@ -32,7 +32,19 @@ export const THEME = {
     STAR_GRAY: "#D9E3F0",
   },
   FONTS: {
-    REGULAR: "Roboto_400Regular",
-    BOLD: "Roboto_700Bold",
+    BALOO2_REGULAR: "Baloo2_400Regular",
+    BALOO2_BOLD: "Baloo2_700Bold",
+    ROBOTO_REGULAR: "Roboto_400Regular",
+    ROBOTO_BOLD: "Roboto_700Bold",
+  },
+
+  SIZES: {
+    FONT: {
+      SMALL: 12,
+      MEDIUM: 16,
+      LARGE: 20,
+      XLARGE: 22,
+      XXLARGE: 28,
+    },
   },
 };

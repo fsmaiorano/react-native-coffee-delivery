@@ -1,15 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-import { THEME } from '../../styles/theme';
+import { THEME } from "../../styles/theme";
 
 export const styles = StyleSheet.create({
-  container: {
-    height: 300,
-    backgroundColor: THEME.COLORS.GREY_900,
-    alignItems: 'center',
-    justifyContent: 'center'
+  title: {
+    color: THEME.COLORS.GREY_800,
+    fontSize: THEME.SIZES.FONT.LARGE,
+    fontFamily: THEME.FONTS.BALOO2_BOLD,
   },
-  text: {
-    color: THEME.COLORS.WHITE
-  }
 });
